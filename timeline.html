@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 2 Surprise 🌊</title>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+body{
+	height:100vh;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	overflow:hidden;
+	color:white;
+	position:relative;
+}
+
+/* 🌊 Background Video */
+video{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	object-fit:cover;
+	z-index:-2;
+}
+
+/* 🌅 Ocean Overlay */
+body::after{
+	content:"";
+	position:absolute;
+	width:100%;
+	height:100%;
+	background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,120,150,0.4));
+	z-index:-1;
+}
+
+/* 🌴 Glass Card */
+.card{
+	position:relative;
+	z-index:2;
+	background: rgba(255,255,255,0.06); /* more transparent */
+	backdrop-filter: blur(25px);
+	-webkit-backdrop-filter: blur(25px);
+
+	padding:60px 50px;
+	border-radius:30px;
+	border:1px solid rgba(255,255,255,0.2);
+	box-shadow:0 25px 60px rgba(0,0,0,0.4);
+
+	text-align:center;
+	width:90%;
+	max-width:550px;
+
+	animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+	0%,100%{ transform: translateY(0);}
+	50%{ transform: translateY(-12px);}
+}
+
+h1{
+	font-size:2rem;
+	margin-bottom:20px;
+	text-shadow:0 8px 25px rgba(0,0,0,0.9);
+}
+
+p{
+	margin-bottom:25px;
+	line-height:1.6;
+	font-size:1rem;
+	text-shadow:0 5px 20px rgba(0,0,0,0.9);
+}
+
+/* 🌊 Buttons */
+.btn{
+	padding:14px 25px;
+	border:none;
+	border-radius:40px;
+	cursor:pointer;
+	margin:10px;
+	font-size:1rem;
+	transition:0.4s ease;
+	color:white;
+	background: linear-gradient(135deg, #ff9966, #ff5e62);
+	box-shadow:0 10px 30px rgba(255,150,100,0.6);
+}
+
+.btn:hover{
+	transform:scale(1.12);
+	box-shadow:0 20px 50px rgba(255,255,255,0.5);
+}
+
+/* Hidden Message */
+.hidden{
+	display:none;
+	margin-top:20px;
+	animation:fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn{
+	from{opacity:0; transform:translateY(15px)}
+	to{opacity:1; transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌊 Ocean Background Video -->
+<video autoplay muted loop>
+	<source src="wow.mp4" type="video/mp4">
+</video>
+
+<div class="card">
+	<h1>🌊 Waitttt… Not So Fast Birthday Girl 😌</h1>
+
+	<p id="text">
+	You thought I’d just give you the real message instantly?
+	No no no… You must unlock it.
+	</p>
+
+	<button class="btn" id="ax" onclick="nextStep()">Unlock My Message 💌</button>
+
+	<div class="hidden" id="finalMessage">
+		<p>
+		Okay okay… you passed the test.  
+		Happy Birthday to the girl who makes my world brighter without even trying.  
+		I’m grateful you were born.  
+		I’m grateful I met you.  
+		And I’m excited for every birthday I get to celebrate with you from now on. 💖
+		</p>
+
+		<button class="btn" onclick="nextPage()">Next Surprise ➡️</button>
+	</div>
+</div>
+
+<script>
+let step = 0;
+
+function nextStep(){
+	const text = document.getElementById("text");
+
+	if(step === 0){
+    document.getElementById("ax").innerText = "accepted.... continue";
+		text.innerHTML = "Step 1: Admit that you’re the cutest person alive 😌";
+	}
+	else if(step === 1){
+    document.getElementById("ax").innerText = "muhehehehe.......";
+		text.innerHTML = "Step 2: Promise you won’t bully me for being dramatic 😂";
+	}
+	else if(step === 2){
+    document.getElementById("ax").innerText = "chikipuiii......";
+		text.innerHTML = "Step 3: Say 'I deserve the best guy ever' (that’s me btw)";
+	}
+	else if(step === 3){
+    document.getElementById("ax").innerText = "less gooooo!";
+		text.innerHTML = "Yayyyy you accepted everything you may proceed ahead Mehu 🌊💖";
+    // window.location.href = "fun.html";
+    // <button class="btn" onclick="nextPage()">Next Surprise ➡️</button>
+		// document.getElementById("finalMessage").style.display = "block";
+	}else{
+    window.location.href = "fun.html";
+  }
+	step++;
+}
+
+function nextPage(){
+	window.location.href = "fun.html";
+}
+</script>
+
+</body>
+</html>
