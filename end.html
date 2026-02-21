@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Beginning 💖</title>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family:"Poppins", sans-serif;
+}
+
+body{
+	min-height:100vh;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	background:linear-gradient(135deg,#ffd6ec,#ffe9f5,#fff6fb);
+	text-align:center;
+	padding:40px 20px;
+	overflow:hidden;
+}
+
+/* Card */
+.closing_box{
+	max-width:700px;
+	padding:60px 50px;
+	border-radius:30px;
+	background:white;
+	box-shadow:0 25px 60px rgba(255,105,180,0.25);
+	animation:fadeIn 1.5s ease;
+}
+
+h1{
+	font-size:2.5rem;
+	color:#c21875;
+	margin-bottom:25px;
+}
+
+p{
+	font-size:1.2rem;
+	line-height:1.8;
+	color:#6a1b4d;
+	margin-bottom:30px;
+}
+
+/* Button */
+.btn{
+	padding:14px 35px;
+	border:none;
+	border-radius:50px;
+	background:linear-gradient(135deg,#ff9ecf,#ff6fb5);
+	color:white;
+	font-size:1rem;
+	cursor:pointer;
+	transition:0.3s ease;
+	box-shadow:0 10px 25px rgba(255,105,180,0.4);
+}
+
+.btn:hover{
+	transform:scale(1.1);
+	box-shadow:0 15px 35px rgba(255,105,180,0.6);
+}
+
+/* Floating hearts */
+.heart{
+	position:absolute;
+	color:#ff6fb5;
+	animation:floatUp 6s linear infinite;
+	opacity:0.3;
+}
+
+@keyframes floatUp{
+	0%{transform:translateY(100vh); opacity:0;}
+	50%{opacity:0.5;}
+	100%{transform:translateY(-10vh); opacity:0;}
+}
+
+@keyframes fadeIn{
+	from{opacity:0; transform:translateY(30px);}
+	to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="closing_box">
+	<h1>And This Is Just The Beginning 💕</h1>
+
+	<p>
+	So… we’ve reached the end of this chotu sa gift.<br>
+I hope it made you smiled looking at it,<br>
+
+Happy Birthday once again, jaanu 💖<br>  <br>
+ 
+	I can’t wait to see you today love you miss you..... bieee
+	</p>
+
+	<button class="btn" onclick="showFinal()">Oh one More Thing… 😌</button>
+</div>
+
+<script>
+function showFinal(){
+	document.querySelector(".closing_box").innerHTML = `
+		<h1>I’m Glad We Met 💖</h1>
+		<p>
+		Out of all the people in this world,  
+		I’m just really, really glad  
+		it’s you.
+        BIEEEEEE 
+        I LOVE YOU <3
+		</p>
+	`;
+}
+
+/* Floating hearts generator */
+function createHeart(){
+	const heart = document.createElement("div");
+	heart.classList.add("heart");
+	heart.innerHTML = "💖";
+	heart.style.left = Math.random()*100 + "vw";
+	heart.style.fontSize = (Math.random()*20 + 15) + "px";
+	document.body.appendChild(heart);
+
+	setTimeout(()=>{
+		heart.remove();
+	},6000);
+}
+
+setInterval(createHeart,800);
+</script>
+
+</body>
+</html>

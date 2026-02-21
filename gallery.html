@@ -31,26 +31,63 @@ body {
 }
 
 /* Heading */
+/* 🌸 Super Cute Aesthetic Heading */
 .gallery_heading {
-	padding: 14px 32px;
-	border-radius: 50px;
+	position: relative;
+	padding: 18px 50px;
+	border-radius: 100px;
 
-	background: rgba(255, 255, 255, 0.15);
-	backdrop-filter: blur(12px);
-	-webkit-backdrop-filter: blur(12px);
+	background: linear-gradient(135deg, #ffe4f2, #ffd6eb);
+	border: 2px solid #ffc2e0;
 
-	box-shadow: 0 8px 25px rgba(255, 0, 128, 0.3);
-	border: 1px solid rgba(255, 255, 255, 0.3);
+	box-shadow:
+		0 15px 35px rgba(255, 170, 210, 0.35),
+		inset 0 4px 8px rgba(255, 255, 255, 0.8);
 
-	animation: floatHeading 4s ease-in-out infinite;
+	transform: rotate(-3deg);
+	transition: all 0.4s ease;
 }
 
+.gallery_heading:hover {
+	transform: rotate(0deg) scale(1.08);
+	box-shadow:
+		0 20px 45px rgba(255, 170, 210, 0.5),
+		inset 0 4px 10px rgba(255, 255, 255, 0.9);
+}
+
+/* 💗 Heading Text */
 .gallery_heading p {
-	color: white;
-	font-size: 1.8rem;
-	letter-spacing: 2px;
-	font-weight: 500;
-	text-shadow: 0 4px 15px rgba(255, 0, 128, 0.6);
+	color: #c21875;
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-align: center;
+}
+
+/* ✨ Floating Decorative Hearts */
+.gallery_heading::before,
+.gallery_heading::after {
+	position: absolute;
+	font-size: 1.2rem;
+	animation: floatCute 3s ease-in-out infinite;
+}
+
+.gallery_heading::before {
+	content: "💖";
+	top: -12px;
+	left: -12px;
+}
+
+.gallery_heading::after {
+	content: "✨";
+	bottom: -12px;
+	right: -12px;
+	animation-delay: 1.5s;
+}
+
+@keyframes floatCute {
+	0%,100% { transform: translateY(0); }
+	50% { transform: translateY(-6px); }
 }
 
 /* Floating animation */

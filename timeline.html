@@ -48,19 +48,16 @@ body::after{
 .card{
 	position:relative;
 	z-index:2;
-	background: rgba(255,255,255,0.06); /* more transparent */
+	background: rgba(255,255,255,0.06);
 	backdrop-filter: blur(25px);
 	-webkit-backdrop-filter: blur(25px);
-
 	padding:60px 50px;
 	border-radius:30px;
 	border:1px solid rgba(255,255,255,0.2);
 	box-shadow:0 25px 60px rgba(0,0,0,0.4);
-
 	text-align:center;
 	width:90%;
 	max-width:550px;
-
 	animation: float 6s ease-in-out infinite;
 }
 
@@ -101,7 +98,12 @@ p{
 	box-shadow:0 20px 50px rgba(255,255,255,0.5);
 }
 
-/* Hidden Message */
+/* No Button Style */
+#noBtn{
+	background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+
+/* Hidden Sections */
 .hidden{
 	display:none;
 	margin-top:20px;
@@ -111,6 +113,32 @@ p{
 @keyframes fadeIn{
 	from{opacity:0; transform:translateY(15px)}
 	to{opacity:1; transform:translateY(0)}
+}
+
+/* GIF Box */
+.gif-box{
+	width:160px;
+	margin:15px auto;
+	border-radius:20px;
+	overflow:hidden;
+	box-shadow:0 10px 25px rgba(255,255,255,0.3);
+	animation:pop 0.6s ease;
+}
+
+@keyframes pop{
+	0%{ transform:scale(0.5); opacity:0;}
+	100%{ transform:scale(1); opacity:1;}
+}
+
+/* Shake Animation */
+.shake{
+	animation:shake 0.4s;
+}
+
+@keyframes shake{
+	0%,100%{ transform:translateX(0);}
+	25%{ transform:translateX(-5px);}
+	75%{ transform:translateX(5px);}
 }
 </style>
 </head>
@@ -123,7 +151,7 @@ p{
 </video>
 
 <div class="card">
-	<h1>🌊 Waitttt… Not So Fast Birthday Girl 😌</h1>
+	<h1>🌊 itni jldi naahi jaanu.... step by step</h1>
 
 	<p id="text">
 	You thought I’d just give you the real message instantly?
@@ -131,14 +159,32 @@ p{
 	</p>
 
 	<button class="btn" id="ax" onclick="nextStep()">Unlock My Message 💌</button>
+	<button class="btn" id="noBtn" onclick="showNoMessage()">No 😒</button>
 
+	<!-- No Click Response -->
+	<div class="hidden" id="noMessage">
+		<p style="margin-top:15px; font-weight:600;">
+			Accept it you bhondu 😌💖
+		</p>
+
+		<div class="gif-box">
+			<div class="tenor-gif-embed"
+				data-postid="22116818"
+				data-share-method="host"
+				data-aspect-ratio="1.06667"
+				data-width="100%">
+			</div>
+		</div>
+	</div>
+
+	<!-- Final Message -->
 	<div class="hidden" id="finalMessage">
 		<p>
-		Okay okay… you passed the test.  
+		<!-- Okay okay… you passed the test.  
 		Happy Birthday to the girl who makes my world brighter without even trying.  
 		I’m grateful you were born.  
 		I’m grateful I met you.  
-		And I’m excited for every birthday I get to celebrate with you from now on. 💖
+		And I’m excited for every birthday I get to celebrate with you from now on. 💖 -->
 		</p>
 
 		<button class="btn" onclick="nextPage()">Next Surprise ➡️</button>
@@ -150,35 +196,56 @@ let step = 0;
 
 function nextStep(){
 	const text = document.getElementById("text");
+	const unlockBtn = document.getElementById("ax");
+	const noBtn = document.getElementById("noBtn");
+
+	// Hide the No message section whenever Unlock is pressed
+	document.getElementById("noMessage").style.display = "none";
 
 	if(step === 0){
-    document.getElementById("ax").innerText = "accepted.... continue";
+		unlockBtn.innerText = "accepted.... continue";
 		text.innerHTML = "Step 1: Admit that you’re the cutest person alive 😌";
 	}
 	else if(step === 1){
-    document.getElementById("ax").innerText = "muhehehehe.......";
+		unlockBtn.innerText = "muhehehehe.......";
 		text.innerHTML = "Step 2: Promise you won’t bully me for being dramatic 😂";
 	}
 	else if(step === 2){
-    document.getElementById("ax").innerText = "chikipuiii......";
+		unlockBtn.innerText = "chikipuiii......";
 		text.innerHTML = "Step 3: Say 'I deserve the best guy ever' (that’s me btw)";
 	}
 	else if(step === 3){
-    document.getElementById("ax").innerText = "less gooooo!";
+		unlockBtn.innerText = "less gooooo!";
 		text.innerHTML = "Yayyyy you accepted everything you may proceed ahead Mehu 🌊💖";
-    // window.location.href = "fun.html";
-    // <button class="btn" onclick="nextPage()">Next Surprise ➡️</button>
-		// document.getElementById("finalMessage").style.display = "block";
-	}else{
-    window.location.href = "fun.html";
-  }
+		document.getElementById("finalMessage").style.display = "block";
+		unlockBtn.style.display = "none";
+		noBtn.style.display = "none";
+	}
+	else{
+		window.location.href = "fun.html";
+	}
+
 	step++;
 }
 
 function nextPage(){
 	window.location.href = "fun.html";
 }
+
+function showNoMessage(){
+	const msg = document.getElementById("noMessage");
+	msg.style.display = "block";
+
+	const btn = document.getElementById("noBtn");
+	btn.classList.add("shake");
+
+	setTimeout(()=>{
+		btn.classList.remove("shake");
+	},400);
+}
 </script>
+
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
 </body>
 </html>

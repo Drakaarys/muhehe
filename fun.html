@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Choose Your Surprise 🌊</title>
+<title>Choose Your Surprise 💖</title>
 
 <style>
 *{
@@ -14,13 +14,16 @@
 }
 
 body{
-	height:100vh;
+	min-height:100vh;
 	display:flex;
 	justify-content:center;
-	align-items:center;
-	overflow:hidden;
-	position:relative;
+	align-items:flex-start;
+	padding:60px 20px;
+	overflow-x:hidden;
+	overflow-y:auto;
 	color:white;
+	position:relative;
+	scroll-behavior:smooth;
 }
 
 /* 🎬 Background Video */
@@ -34,12 +37,12 @@ body{
 	z-index:-2;
 }
 
-/* 🌊 Overlay for readability */
+/* 🌊 Overlay */
 body::before{
 	content:"";
 	position:absolute;
 	inset:0;
-	background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,100,150,0.4));
+	background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,80,120,0.4));
 	z-index:-1;
 }
 
@@ -67,57 +70,85 @@ body::before{
 	50%{ transform: translateY(-12px);}
 }
 
-h1{
+.title{
 	font-size:2.3rem;
 	margin-bottom:20px;
-	letter-spacing:2px;
+	letter-spacing:1px;
+	animation: floaty 4s ease-in-out infinite;
 	text-shadow:0 8px 25px rgba(0,0,0,0.8);
 }
 
-p{
-	font-size:1.1rem;
-	margin-bottom:50px;
+.subtitle{
+	font-size:1rem;
+	margin-bottom:40px;
+	line-height:1.6;
 	opacity:0.95;
 	text-shadow:0 5px 20px rgba(0,0,0,0.8);
 }
 
+@keyframes floaty{
+	0%,100%{transform:translateY(0);}
+	50%{transform:translateY(-10px);}
+}
+
+.button-group{
+	display:flex;
+	flex-direction:column;
+	gap:18px;
+	align-items:center;
+}
+
 /* Buttons */
 .btn{
-	display:block;
-	margin:18px auto;
-	padding:18px 35px;
-	font-size:1.1rem;
+	padding:16px 30px;
 	border:none;
 	border-radius:50px;
 	cursor:pointer;
-	width:80%;
-	max-width:350px;
-	transition:0.4s ease;
+	font-size:1rem;
+	font-weight:600;
+	letter-spacing:0.5px;
 	color:white;
+	width:260px;
+	transition:0.35s ease;
 	position:relative;
 	overflow:hidden;
 }
 
+/* Gradients */
 .surprise1{
-	background: linear-gradient(135deg, #ff9966, #ff5e62);
-	box-shadow:0 15px 40px rgba(255,150,100,0.6);
+	background: linear-gradient(135deg,#ffafbd,#ffc3a0);
+	box-shadow:0 15px 40px rgba(255,150,100,0.5);
 }
 
 .surprise2{
-	background: linear-gradient(135deg, #36d1dc, #5b86e5);
-	box-shadow:0 15px 40px rgba(0,150,255,0.6);
+	background: linear-gradient(135deg,#c471f5,#fa71cd);
+	box-shadow:0 15px 40px rgba(200,100,255,0.5);
 }
 
-.moments{
-	background: linear-gradient(135deg, #00c9a7, #92fe9d);
-	box-shadow:0 15px 40px rgba(0,200,150,0.6);
+.surprise3{
+	background: linear-gradient(135deg,#43cea2,#185a9d);
+	box-shadow:0 15px 40px rgba(0,200,150,0.5);
 }
 
+.surprise4{
+	background: linear-gradient(135deg,#f7971e,#ffd200);
+	box-shadow:0 15px 40px rgba(255,200,0,0.5);
+}
+
+/* Ending Button */
+.ending-btn{
+	background: linear-gradient(135deg,#ff6a88,#ff99ac);
+	box-shadow:0 15px 40px rgba(255,105,180,0.6);
+	margin-top:30px;
+}
+
+/* Hover */
 .btn:hover{
-	transform: scale(1.12);
-	box-shadow:0 20px 60px rgba(255,255,255,0.5);
+	transform:scale(1.08);
+	box-shadow:0 20px 60px rgba(255,255,255,0.4);
 }
 
+/* Shine effect */
 .btn::after{
 	content:"";
 	position:absolute;
@@ -137,39 +168,51 @@ p{
 .btn:hover::after{
 	left:100%;
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- 🌊 Ocean Background Video -->
+<!-- Background Video -->
 <video class="bg-video" autoplay muted loop playsinline>
 	<source src="wow.mp4" type="video/mp4">
 </video>
 
 <div class="container">
-	<h1>Now Now Now… 🌊</h1>
-	<p>
-	Let’s not rush like waves on the shore.  
-	What do you want next? Choose your surprise…
+
+	<h1 class="title">Muhehehe… you made it here 😌</h1>
+
+	<p class="subtitle">
+	Okay birthday baby… <br>
+	You’ve done good job abhi tak 😏 <br>  
+	So tell me… what kind of surprise do you want next?<br>
+	Chalo choose karo.
 	</p>
 
-	<button class="btn surprise1" onclick="go1()">
-		🌅 Surprise 1
-	</button>
+	<div class="button-group">
 
-	<button class="btn surprise2" onclick="go2()">
-		🌊 Surprise 2
-	</button>
+		<button class="btn surprise1" onclick="go1()">
+			🎬 The Dramatic Main Character One
+		</button>
 
-	<button class="btn moments" onclick="go3()">
-		🏝 Surprise 3
-	</button>
+		<button class="btn surprise2" onclick="go2()">
+			🌸 The “Aww” One
+		</button>
 
-	<button class="btn moments" onclick="go4()">
-		🥰 Surprise 4
-	</button>
+		<button class="btn surprise3" onclick="go3()">
+			📸 The “Us Being Cute” One
+		</button>
 
+		<button class="btn surprise4" onclick="go4()">
+			🥰 The “Blush Blush” One
+		</button>
+
+		<button class="btn ending-btn" onclick="goEnd()">
+			One Last Thing…
+		</button>
+
+	</div>
 
 </div>
 
@@ -188,6 +231,10 @@ function go3(){
 
 function go4(){
 	window.location.href = "poem.html";
+}
+
+function goEnd(){
+	window.location.href = "end.html";
 }
 </script>
 

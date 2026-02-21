@@ -3,21 +3,168 @@
 <head>
   <title>For You ❤️</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffe6f0, #fff0f5);
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      margin-top: 60px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      color: #ff4da6;
+      font-size: 36px;
+      animation: bounce 2s infinite;
+    }
+
+    p {
+      font-size: 18px;
+      color: #444;
+      max-width: 500px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+
+    .gif {
+      width: 250px;
+      margin: 20px auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
+    }
+
+    .btn {
+      padding: 12px 25px;
+      background: #ff66b2;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.5);
+    }
+
+    .btn:hover {
+      background: #ff3385;
+      transform: scale(1.1);
+    }
+
+    .music-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: #ff99cc;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      color: #ff66b2;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+
+    .gif-wrapper {
+  width: 170px;   /* smaller size */
+  margin: 15px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(255, 105, 180, 0.3);
+  transition: 0.3s ease;
+}
+
+    @keyframes float {
+      0% {
+        bottom: -10%;
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 110%;
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
+
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
 <body>
-    <button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+<div class="container fade-in">
+  <h1>Hieeeee Twin 💖</h1>
+
+  <!-- Shy Cat GIF -->
+  <div class="gif-wrapper">
+    <div class="tenor-gif-embed"
+         data-postid="23867006"
+         data-share-method="host"
+         data-aspect-ratio="1"
+         data-width="100%">
+      <a href="https://tenor.com/view/shy-cat-gif-23867006">
+        Shy Cat Sticker
+      </a>
+    </div>
+  </div>
+
+  <p>
+    Iheard it's your birthday today <br>
+    umm..... umm... Happy birthday to me.... umm.... umm... no wait <br>
+    brithday to me... umm.. happy me..... wait you.... ummm.... <br>
+    happy birthday to you... umm.. yeah... umm... 😭💖
+  </p>
+
+  <button class="btn" onclick="location.href='timeline.html'">
+    Umm. umm.... ✨
+  </button>
+</div>
+
+<script>
+  // Floating hearts generator
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 6000);
+  }
+
+  setInterval(createHeart, 500);
+</script>
+
 <script src="js/script.js"></script>
 
-  <div class="container fade-in">
-    <h1>Hey You 💖</h1>
-    <p>
-      I made something for you.<br>
-      Take your time. Smile a little.  
-      (Warning: emotions ahead 😌)
-    </p>
-    <button class="btn" onclick="location.href='timeline.html'">
-      Enter Our Story ✨
-    </button>
-  </div>
 </body>
 </html>
