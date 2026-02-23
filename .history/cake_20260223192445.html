@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waittt… 🎂</title>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family:"Poppins",sans-serif;
+}
+
+body{
+	height:100vh;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+	color:white;
+	text-align:center;
+}
+
+.container{
+	background:rgba(255,255,255,0.1);
+	backdrop-filter:blur(20px);
+	padding:50px 40px;
+	border-radius:30px;
+	width:90%;
+	max-width:500px;
+	box-shadow:0 20px 50px rgba(0,0,0,0.3);
+}
+
+h1{
+	font-size:2rem;
+	margin-bottom:15px;
+}
+
+.gif-wrapper{
+	width:240px;
+	height:240px;
+	margin:25px auto;
+	border-radius:20px;
+	overflow:hidden;
+	position:relative;
+}
+
+/* Both GIFs same size */
+.gif-wrapper iframe,
+.tenor-gif-embed{
+	width:100% !important;
+	height:100% !important;
+}
+
+.hidden{
+	display:none;
+}
+
+button{
+	padding:14px 25px;
+	border:none;
+	border-radius:40px;
+	background:linear-gradient(135deg,#ff6a88,#ff99ac);
+	color:white;
+	font-weight:600;
+	cursor:pointer;
+	margin-top:20px;
+	transition:0.3s;
+}
+
+button:hover{
+	transform:scale(1.08);
+	box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.next-btn{
+	background:linear-gradient(135deg,#43cea2,#185a9d);
+	margin-top:25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="xd">WAITTTT 🎂</h1>
+<p class="xd">Before going ahead… cake cut toh karlo birthday baby 😌</p>
+
+<div class="gif-wrapper">
+
+    <!-- GIPHY GIF (default visible) -->
+    <div id="giphyGif">
+        <iframe 
+            src="https://giphy.com/embed/wumLmqIVT4yDwsZiqD"
+            frameBorder="0"
+            allowFullScreen>
+        </iframe>
+    </div>
+
+    <!-- TENOR GIF (hidden initially) -->
+    <div id="tenorGif" class="hidden">
+        <div class="tenor-gif-embed"
+             data-postid="22427596"
+             data-share-method="host"
+             data-aspect-ratio="1.34454"
+             data-width="100%">
+        </div>
+    </div>
+
+</div>
+
+<button id="cutBtn" onclick="cutCake()">Cut the Cake 🎉</button>
+
+<div id="message" class="hidden">
+	<p style="margin-top:20px; line-height:1.6;">
+		YAYYYYY 🥺💖 <br><br>
+		Look at that cake gooo 😭🎂  
+		Happiest Birthday cutieee 😌✨
+	</p>
+
+	<button class="next-btn" onclick="goNext()">
+		Okay now take me to my surprise 😌
+	</button>
+</div>
+
+</div>
+
+<!-- Tenor Script -->
+<script async src="https://tenor.com/embed.js"></script>
+
+<script>
+function cutCake(){
+
+    // Hide all elements with class "xd"
+    const elements = document.getElementsByClassName("xd");
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.add("hidden");
+    }
+
+    // Hide Giphy
+    document.getElementById("giphyGif").classList.add("hidden");
+
+    // Show Tenor
+    document.getElementById("tenorGif").classList.remove("hidden");
+
+    // Hide button
+    document.getElementById("cutBtn").style.display="none";
+
+    // Show message
+    document.getElementById("message").classList.remove("hidden");
+}
+
+function goNext(){
+	window.location.href="fun.html"; 
+}
+</script>
+
+</body>
+</html>

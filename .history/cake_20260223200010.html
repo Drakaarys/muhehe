@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>The Grand Birthday Ceremony 💖</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Comic Sans MS', cursive;}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffe6f0,#fff0f5);
+color:#444;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(15px);
+padding:50px 40px;
+border-radius:30px;
+width:90%;
+max-width:520px;
+box-shadow:0 15px 35px rgba(255,105,180,0.3);
+position:relative;
+animation:fadeIn 1.5s ease-in-out;
+}
+
+h1{
+color:#ff4da6;
+margin-bottom:15px;
+animation:bounce 2s infinite;
+}
+
+.subtitle{
+min-height:60px;
+margin-bottom:20px;
+font-size:16px;
+}
+
+button{
+padding:12px 24px;
+border:none;
+border-radius:30px;
+background:#ff66b2;
+color:white;
+font-weight:600;
+cursor:pointer;
+margin-top:15px;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(255,105,180,0.4);
+}
+
+button:hover{
+background:#ff3385;
+transform:scale(1.1);
+}
+
+.candles{
+font-size:45px;
+margin:20px 0;
+}
+
+.glow{
+text-shadow:0 0 15px #ffcc00,0 0 25px orange;
+}
+
+.hidden{display:none;}
+
+.gif-wrapper{
+width:220px;
+margin:20px auto;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 8px 18px rgba(255,105,180,0.3);
+}
+
+/* Floating Hearts */
+.heart{
+position:absolute;
+color:#ff66b2;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{bottom:-10%;opacity:0;}
+50%{opacity:1;}
+100%{bottom:110%;opacity:0;}
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-6px);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎀 Birthday Ceremony 🎀</h1>
+
+<div class="subtitle" id="dialogue">
+Okay okay… calm down… we do this properly 😌💖
+</div>
+
+<div class="candles" id="candles">🕯️ 🕯️ 🕯️</div>
+
+<div class="gif-wrapper">
+
+<!-- Lighting GIF -->
+<div id="gif-light" class="hidden">
+<div class="tenor-gif-embed"
+data-postid="6628766634851716507"
+data-share-method="host"
+data-aspect-ratio="1.20667"
+data-width="100%">
+</div>
+</div>
+
+<!-- Chrome Wish GIF -->
+<div id="gif-wish" class="hidden">
+<div class="tenor-gif-embed"
+data-postid="8181001321631623875"
+data-share-method="host"
+data-aspect-ratio="0.967442"
+data-width="100%">
+</div>
+</div>
+
+<!-- Blow GIF -->
+<div id="gif-blow" class="hidden">
+<div class="tenor-gif-embed"
+data-postid="15112274"
+data-share-method="host"
+data-aspect-ratio="1.20755"
+data-width="100%">
+</div>
+</div>
+
+<!-- Cake GIF -->
+<div id="gif-cake" class="hidden">
+<div class="tenor-gif-embed"
+data-postid="22427596"
+data-share-method="host"
+data-aspect-ratio="1.34454"
+data-width="100%">
+</div>
+</div>
+
+<!-- Dance GIF -->
+<div id="gif-dance" class="hidden">
+<div class="tenor-gif-embed"
+data-postid="13824987838702101531"
+data-share-method="host"
+data-aspect-ratio="1"
+data-width="100%">
+</div>
+</div>
+
+</div>
+
+<button id="actionBtn" onclick="nextStep()">Start Properly 😤</button>
+
+<div id="finalMessage" class="hidden">
+<p style="margin-top:15px;">
+Now officially older… but still baby 😭💖
+</p>
+<button onclick="goNext()">Go To Surprise ✨</button>
+</div>
+
+</div>
+
+<script async src="https://tenor.com/embed.js"></script>
+
+<script>
+let step = 0;
+
+function hideAllGifs(){
+["gif-light","gif-wish","gif-blow","gif-cake","gif-dance"]
+.forEach(id=>document.getElementById(id).classList.add("hidden"));
+}
+
+function nextStep(){
+step++;
+
+const dialogue=document.getElementById("dialogue");
+const candles=document.getElementById("candles");
+const btn=document.getElementById("actionBtn");
+
+if(step===1){
+dialogue.innerText="Light the candles first… no shortcuts 😤";
+btn.innerText="Light Them 🔥";
+}
+else if(step===2){
+candles.classList.add("glow");
+hideAllGifs();
+document.getElementById("gif-light").classList.remove("hidden");
+dialogue.innerText="Ouuuu shinyyyyy 😳✨";
+btn.innerText="Make A Wish 😐";
+}
+else if(step===3){
+hideAllGifs();
+document.getElementById("gif-wish").classList.remove("hidden");
+dialogue.innerText="Serious anime mode activated 😐🔥";
+btn.innerText="Blow Them 💨";
+}
+else if(step===4){
+candles.innerText="💨 💨 💨";
+hideAllGifs();
+document.getElementById("gif-blow").classList.remove("hidden");
+dialogue.innerText="WHY SO AGGRESSIVE 😭";
+btn.innerText="Cut Cake 🎂";
+}
+else if(step===5){
+candles.classList.add("hidden");
+hideAllGifs();
+document.getElementById("gif-cake").classList.remove("hidden");
+dialogue.innerText="THE MOMENTTTT 😭💖";
+btn.style.display="none";
+
+setTimeout(()=>{
+hideAllGifs();
+document.getElementById("gif-dance").classList.remove("hidden");
+dialogue.innerText="And now… happy danceeee 💃💖";
+},3000);
+
+document.getElementById("finalMessage").classList.remove("hidden");
+}
+}
+
+function goNext(){
+window.location.href="choose.html";
+}
+
+/* Floating hearts */
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart,600);
+</script>
+
+</body>
+</html>

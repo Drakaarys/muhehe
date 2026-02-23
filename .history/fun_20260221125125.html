@@ -24,13 +24,17 @@ body{
 	color:white;
 	position:relative;
 	scroll-behavior:smooth;
+}
 
-	/* 🌄 Background Image */
-	background-image: url("xdxd.png");   /* change to your image name */
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
+/* 🎬 Background Video */
+.bg-video{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	object-fit:cover;
+	z-index:-2;
 }
 
 /* 🌊 Overlay */
@@ -131,17 +135,20 @@ body::before{
 	box-shadow:0 15px 40px rgba(255,200,0,0.5);
 }
 
+/* Ending Button */
 .ending-btn{
 	background: linear-gradient(135deg,#ff6a88,#ff99ac);
 	box-shadow:0 15px 40px rgba(255,105,180,0.6);
 	margin-top:30px;
 }
 
+/* Hover */
 .btn:hover{
 	transform:scale(1.08);
 	box-shadow:0 20px 60px rgba(255,255,255,0.4);
 }
 
+/* Shine effect */
 .btn::after{
 	content:"";
 	position:absolute;
@@ -161,19 +168,25 @@ body::before{
 .btn:hover::after{
 	left:100%;
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- Background Video -->
+<video class="bg-video" autoplay muted loop playsinline>
+	<source src="wow.mp4" type="video/mp4">
+</video>
+
 <div class="container">
 
-	<h1 class="title">Muhehehe… yayy are here 😌</h1>
+	<h1 class="title">Muhehehe… you made it here 😌</h1>
 
 	<p class="subtitle">
 	Okay birthday baby… <br>
-	Now the gift time...... yayyyyy <br>  
-	Sooooooo! choose your gift jaanu<br>
+	You’ve done good job abhi tak 😏 <br>  
+	So tell me… what kind of surprise do you want next?<br>
 	Chalo choose karo.
 	</p>
 
@@ -204,11 +217,25 @@ body::before{
 </div>
 
 <script>
-function go1(){ window.location.href = "gallery.html"; }
-function go2(){ window.location.href = "personal_message.html"; }
-function go3(){ window.location.href = "surp.html"; }
-function go4(){ window.location.href = "poem.html"; }
-function goEnd(){ window.location.href = "end.html"; }
+function go1(){
+	window.location.href = "gallery.html"; 
+}
+
+function go2(){
+	window.location.href = "personal_message.html";
+}
+
+function go3(){
+	window.location.href = "surp.html";
+}
+
+function go4(){
+	window.location.href = "poem.html";
+}
+
+function goEnd(){
+	window.location.href = "end.html";
+}
 </script>
 
 </body>

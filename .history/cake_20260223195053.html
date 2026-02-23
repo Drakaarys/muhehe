@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>The Grand Birthday Ceremony 🎬</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:radial-gradient(circle at top,#ff758c,#ff7eb3,#ff9a9e);
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+background:rgba(255,255,255,0.12);
+backdrop-filter:blur(25px);
+padding:50px 40px;
+border-radius:30px;
+width:90%;
+max-width:520px;
+box-shadow:0 20px 60px rgba(0,0,0,0.4);
+position:relative;
+}
+
+.subtitle{
+min-height:60px;
+margin-bottom:20px;
+font-size:15px;
+}
+
+button{
+padding:12px 24px;
+border:none;
+border-radius:40px;
+background:linear-gradient(135deg,#ff416c,#ff4b2b);
+color:white;
+font-weight:600;
+cursor:pointer;
+margin-top:15px;
+transition:0.3s;
+}
+
+button:hover{transform:scale(1.1);}
+
+.candles{
+font-size:45px;
+margin:20px 0;
+}
+
+.glow{
+text-shadow:0 0 20px yellow,0 0 35px orange;
+}
+
+.hidden{display:none;}
+
+.gif-wrapper{
+width:260px;
+margin:20px auto;
+border-radius:20px;
+overflow:hidden;
+}
+
+.confetti{
+position:absolute;
+font-size:25px;
+animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+0%{top:-20px;}
+100%{top:110%;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎬 The Grand Birthday Ceremony 🎬</h1>
+
+<div class="subtitle" id="dialogue">
+Ladies and gentlemen… today we gather for a historic moment 😌
+</div>
+
+<div class="candles" id="candles">🕯️ 🕯️ 🕯️</div>
+
+<div class="gif-wrapper">
+
+<!-- Lighting GIF -->
+<div id="gif-light" class="hidden">
+<div class="tenor-gif-embed"
+data-postid="6628766634851716507"
+data-share-method="host"
+data-aspect-ratio="1.20667"
+data-width="100%">
+</div>
+</div>
+
+<!-- Chrome Make Wish GIF (REPLACED HERE) -->
+<div id="gif-wish" class="hidden">
+<div class="tenor-gif-embed"
+data-postid="8181001321631623875"
+data-share-method="host"
+data-aspect-ratio="0.967442"
+data-width="100%">
+</div>
+</div>
+
+<!-- Blow GIF -->
+<div id="gif-blow" class="hidden">
+<div class="tenor-gif-embed"
+data-postid="15112274"
+data-share-method="host"
+data-aspect-ratio="1.20755"
+data-width="100%">
+</div>
+</div>
+
+<!-- Cake Cutting GIF -->
+<div id="gif-cake" class="hidden">
+<div class="tenor-gif-embed"
+data-postid="22427596"
+data-share-method="host"
+data-aspect-ratio="1.34454"
+data-width="100%">
+</div>
+</div>
+
+<!-- Dancing GIF -->
+<div id="gif-dance" class="hidden">
+<div class="tenor-gif-embed"
+data-postid="13824987838702101531"
+data-share-method="host"
+data-aspect-ratio="1"
+data-width="100%">
+</div>
+</div>
+
+</div>
+
+<button id="actionBtn" onclick="nextStep()">Begin Ceremony 🎥</button>
+
+<div id="finalMessage" class="hidden">
+<p style="margin-top:15px;">
+BREAKING NEWS 📰💖<br>
+Cutest person officially older but still baby 😌
+</p>
+<button onclick="goNext()">Proceed to Surprise 🎁</button>
+</div>
+
+</div>
+
+<script async src="https://tenor.com/embed.js"></script>
+
+<script>
+let step = 0;
+
+function hideAllGifs(){
+document.getElementById("gif-light").classList.add("hidden");
+document.getElementById("gif-wish").classList.add("hidden");
+document.getElementById("gif-blow").classList.add("hidden");
+document.getElementById("gif-cake").classList.add("hidden");
+document.getElementById("gif-dance").classList.add("hidden");
+}
+
+function nextStep(){
+step++;
+
+const dialogue = document.getElementById("dialogue");
+const candles = document.getElementById("candles");
+const btn = document.getElementById("actionBtn");
+
+if(step === 1){
+dialogue.innerText="First… we light the sacred candles 🕯️✨";
+btn.innerText="Light Them Dramatically 🔥";
+}
+
+else if(step === 2){
+candles.classList.add("glow");
+dialogue.innerText="OHHH look at that glow 😳 somebody is shining today.";
+hideAllGifs();
+document.getElementById("gif-light").classList.remove("hidden");
+btn.innerText="Make A Wish (Serious Anime Face 😐)";
+}
+
+else if(step === 3){
+dialogue.innerText="Close your eyes… think deeply… VERY serious face 😐";
+hideAllGifs();
+document.getElementById("gif-wish").classList.remove("hidden");
+btn.innerText="Blow The Candles With Attitude 💨";
+}
+
+else if(step === 4){
+candles.innerText="💨 💨 💨";
+dialogue.innerText="OMG THAT WAS AGGRESSIVE 😭 the candles flew away (including me)";
+hideAllGifs();
+document.getElementById("gif-blow").classList.remove("hidden");
+btn.innerText="Cut The Cake Like A Superstar 🎉";
+}
+
+else if(step === 5){
+candles.classList.add("hidden");
+dialogue.innerText="ANDDDD HERE COMES THE ICONIC CAKE CUTTING SCENE 🎬✨";
+hideAllGifs();
+document.getElementById("gif-cake").classList.remove("hidden");
+
+btn.style.display="none";
+launchConfetti();
+
+setTimeout(()=>{
+dialogue.innerText="LOOK AT HER DANCING AFTER CAKE 😭💃";
+hideAllGifs();
+document.getElementById("gif-dance").classList.remove("hidden");
+},3000);
+
+document.getElementById("finalMessage").classList.remove("hidden");
+}
+}
+
+function launchConfetti(){
+for(let i=0;i<40;i++){
+let conf=document.createElement("div");
+conf.innerHTML="🎊";
+conf.className="confetti";
+conf.style.left=Math.random()*100+"%";
+document.querySelector(".container").appendChild(conf);
+}
+}
+
+function goNext(){
+window.location.href="choose.html";
+}
+</script>
+
+</body>
+</html>
