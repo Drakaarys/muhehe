@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>One Important Question… 💖</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffe6f0,#fff0f5);
+font-family:'Comic Sans MS',cursive;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+background:white;
+padding:50px 40px;
+border-radius:30px;
+box-shadow:0 15px 35px rgba(255,105,180,0.3);
+max-width:500px;
+width:90%;
+}
+
+h1{
+color:#ff4da6;
+margin-bottom:20px;
+}
+
+#text{
+font-size:20px;
+min-height:80px;
+transition:0.4s ease;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:#ff66b2;
+color:white;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(255,105,180,0.4);
+}
+
+button:hover{
+transform:scale(1.1);
+background:#ff3385;
+}
+
+.hidden{
+display:none;
+}
+
+.fade{
+animation:fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Okay… serious now 😌</h1>
+
+<p id="text" class="fade">
+Now that you are officially older…
+</p>
+
+<button id="nextBtn" onclick="nextStep()">Continue</button>
+
+<button id="finalBtn" class="hidden" onclick="goNext()">
+Press this button 😌
+</button>
+
+</div>
+
+<script>
+let step = 0;
+
+function nextStep(){
+step++;
+const text = document.getElementById("text");
+
+if(step === 1){
+text.innerText="And more mature…";
+}
+else if(step === 2){
+text.innerText="And wiser…";
+}
+else if(step === 3){
+text.innerText="And still very dramatic…";
+}
+else if(step === 4){
+text.innerText="I need to ask you something important…";
+}
+else if(step === 5){
+text.innerText="Will you…";
+}
+else if(step === 6){
+text.innerText="Be the girl…";
+}
+else if(step === 7){
+text.innerText="Who presses this button?";
+document.getElementById("nextBtn").classList.add("hidden");
+document.getElementById("finalBtn").classList.remove("hidden");
+}
+}
+
+function goNext(){
+window.location.href="fun.html";
+}
+</script>
+
+</body>
+</html>

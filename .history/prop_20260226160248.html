@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>One Important Question… 💖</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffe6f0,#fff0f5);
+font-family:'Comic Sans MS',cursive;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+background:white;
+padding:50px 40px;
+border-radius:30px;
+box-shadow:0 15px 35px rgba(255,105,180,0.3);
+max-width:500px;
+width:90%;
+}
+
+h1{
+color:#ff4da6;
+margin-bottom:20px;
+}
+
+#text{
+font-size:20px;
+min-height:100px;
+transition:0.4s ease;
+line-height:1.6;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:#ff66b2;
+color:white;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(255,105,180,0.4);
+}
+
+button:hover{
+transform:scale(1.1);
+background:#ff3385;
+}
+
+.hidden{
+display:none;
+}
+
+.gif-wrapper{
+width:200px;
+margin:20px auto 0;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 8px 18px rgba(255,105,180,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Okay… serious now 😌</h1>
+
+<p id="text">
+Now that you have cut the cake…
+</p>
+
+<button id="nextBtn" onclick="nextStep()">Continue</button>
+
+<button id="finalBtn" class="hidden" onclick="finalMoment()">
+Press this button 😌
+</button>
+
+<div id="laughGif" class="hidden gif-wrapper">
+<div class="tenor-gif-embed"
+data-postid="18191416"
+data-share-method="host"
+data-aspect-ratio="1.23552"
+data-width="100%">
+</div>
+</div>
+
+</div>
+
+<script async src="https://tenor.com/embed.js"></script>
+
+<script>
+let step = 0;
+
+function nextStep(){
+step++;
+const text = document.getElementById("text");
+
+if(step === 1){
+text.innerText="And I have eaten it 😌";
+}
+else if(step === 2){
+text.innerText="I have something real important to ask...";
+}
+else if(step === 3){
+text.innerText="Umm... ummm.....";
+}
+else if(step === 4){
+text.innerText="Will you........";
+}
+else if(step === 5){
+text.innerText="Be the girl........";
+}
+else if(step === 6){
+text.innerText="To press this button......";
+document.getElementById("nextBtn").classList.add("hidden");
+document.getElementById("finalBtn").classList.remove("hidden");
+}
+}
+
+function finalMoment(){
+const text = document.getElementById("text");
+
+text.innerText="HAHA 😭💖 I just wanted to see your serious face.";
+document.getElementById("finalBtn").classList.add("hidden");
+
+setTimeout(()=>{
+text.innerText="Okay okay… now let’s continue 😌✨";
+document.getElementById("laughGif").classList.remove("hidden");
+},1500);
+
+setTimeout(()=>{
+window.location.href="fun.html";
+},5000);
+}
+</script>
+
+</body>
+</html>
