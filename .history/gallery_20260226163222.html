@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Little Gallery ✨</title>
+
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #000814;
+	font-family: sans-serif;
+}
+
+/* Main container */
+.main_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 50px;
+	padding: 40px 20px;
+}
+
+/* Heading */
+/* 🌸 Super Cute Aesthetic Heading */
+.gallery_heading {
+	position: relative;
+	padding: 18px 50px;
+	border-radius: 100px;
+
+	background: linear-gradient(135deg, #ffe4f2, #ffd6eb);
+	border: 2px solid #ffc2e0;
+
+	box-shadow:
+		0 15px 35px rgba(255, 170, 210, 0.35),
+		inset 0 4px 8px rgba(255, 255, 255, 0.8);
+
+	transform: rotate(-3deg);
+	transition: all 0.4s ease;
+}
+
+.gallery_heading:hover {
+	transform: rotate(0deg) scale(1.08);
+	box-shadow:
+		0 20px 45px rgba(255, 170, 210, 0.5),
+		inset 0 4px 10px rgba(255, 255, 255, 0.9);
+}
+
+/* 💗 Heading Text */
+.gallery_heading p {
+	color: #c21875;
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-align: center;
+}
+
+/* ✨ Floating Decorative Hearts */
+.gallery_heading::before,
+.gallery_heading::after {
+	position: absolute;
+	font-size: 1.2rem;
+	animation: floatCute 3s ease-in-out infinite;
+}
+
+.gallery_heading::before {
+	content: "💖";
+	top: -12px;
+	left: -12px;
+}
+
+.gallery_heading::after {
+	content: "✨";
+	bottom: -12px;
+	right: -12px;
+	animation-delay: 1.5s;
+}
+
+@keyframes floatCute {
+	0%,100% { transform: translateY(0); }
+	50% { transform: translateY(-6px); }
+}
+
+/* Floating animation */
+@keyframes floatHeading {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-8px); }
+}
+
+/* Gallery Grid */
+.gallery_wrapper {
+	--img-size:200px;
+	display: grid;
+	gap: 0.5rem;
+	grid-template-columns: repeat(6, var(--img-size));
+	grid-template-rows: repeat(4, var(--img-size));
+}
+
+/* Images */
+.gallery_wrapper img {
+	max-width: 100%;
+	aspect-ratio: 1;
+	object-fit: cover;
+	grid-column: span 2;
+	border-radius: 0.5rem;
+
+	clip-path: path(
+		"M 80 20 C 100 0 100 0 120 20 C 140 40 160 60 180 80 C 200 100 200 100 180 120 C 160 140 140 160 120 180 C 100 200 100 200 80 180 C 60 160 40 140 20 120 C 0 100 0 100 20 80 Z"
+	);
+
+	transition: filter 500ms ease, clip-path 500ms ease;
+}
+
+/* Special positioning */
+.gallery_wrapper img:nth-of-type(4),
+.gallery_wrapper img:nth-of-type(9) {
+	grid-column: 2 / span 2;
+}
+
+/* Hover effect */
+.gallery_wrapper img:hover {
+	z-index: 100;
+	clip-path: path(
+		"M 0 0 C 100 0 100 0 200 0 C 200 50 200 50 200 80 C 200 100 200 100 200 120 C 200 150 200 150 200 200 C 100 200 100 200 0 200 C 0 150 0 150 0 120 C 0 100 0 100 0 80 Z"
+	);
+}
+
+.gallery_wrapper img:not(:hover) {
+	animation: zIndexFix 500ms;
+}
+
+.gallery_wrapper:hover > img {
+	filter: brightness(0.5) saturate(0.5);
+}
+
+.gallery_wrapper > img:hover {
+	filter: brightness(1) saturate(1.5);
+}
+
+@keyframes zIndexFix {
+	0%, 100% {
+		z-index: 10;
+	}
+}
+
+/* Responsive */
+/* @media (max-width: 768px) {
+	.gallery_wrapper {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: auto;
+	}
+} */
+</style>
+</head>
+
+<body>
+
+<div class="main_container">
+
+	<div class="gallery_heading">
+		<p>MY BAGGO ✨</p>
+	</div>
+
+	<article class="gallery_wrapper">
+
+		<img src="photos/a.jpeg" alt="">
+		<img src="photos/l.jpeg" alt="">
+		<img src="photos/f.jpeg" alt="">
+		<img src="photos/z.jpeg" alt="">
+		<img src="photos/i.jpeg" alt="">
+		<img src="photos/x.jpeg" alt="">
+		<img src="photos/k.jpeg" alt="">
+		<img src="photos/w.jpeg" alt="">
+		<img src="photos/e.jpeg" alt="">
+		<img src="photos/p.jpeg" alt="">
+		<img src="photos/q.jpeg" alt="">
+		<img src="photos/m.jpeg" alt="">
+		<img src="photos/t.jpeg" alt="">
+
+	</article>
+
+</div>
+
+</body>
+</html>
